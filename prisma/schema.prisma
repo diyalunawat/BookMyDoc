@@ -1,0 +1,122 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+}
+
+// Profile model - base user profile
+model Profile {
+  id              String   @id @default(uuid())
+  email           String   @unique
+  password        String   // hashed password
+  role            String   // 'patient' or 'doctor'
+  fullName        String   @map("full_name")
+  phone           String?
+  age             Int?
+  gender          String?  // 'male', 'female', 'other'
+  profilePhotoUrl String?  @map("profile_photo_url")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  doctorProfile   Doctor?
+  appointments    Appointment[] @relation("PatientAppointments")
+  reviews         DoctorReview[]
+
+  @@map("profiles")
+}
+
+// Doctor model - extends profile with doctor-specific info
+model Doctor {
+  id              String   @id @default(uuid())
+  specialization  String
+  qualification   String
+  experienceYears Int      @map("experience_years")
+  consultationFee Decimal  @db.Decimal(10, 2) @map("consultation_fee")
+  clinicLocation  String   @map("clinic_location")
+  city            String
+  bio             String?
+  rating          Decimal  @default(0) @db.Decimal(3, 2)
+  totalRatings    Int      @default(0) @map("total_ratings")
+  createdAt       DateTime @default(now()) @map("created_at")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  profile         Profile  @relation(fields: [id], references: [id], onDelete: Cascade)
+  availability    DoctorAvailability[]
+  appointments    Appointment[] @relation("DoctorAppointments")
+  reviews         DoctorReview[]
+
+  @@map("doctors")
+  @@index([specialization])
+  @@index([city])
+  @@index([rating])
+}
+
+// Doctor availability model
+model DoctorAvailability {
+  id         String   @id @default(uuid())
+  doctorId   String   @map("doctor_id")
+  dayOfWeek  Int      @map("day_of_week") // 0-6 (Sunday-Saturday)
+  startTime  DateTime @map("start_time") @db.Time
+  endTime    DateTime @map("end_time") @db.Time
+  isAvailable Boolean @default(true) @map("is_available")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  // Relations
+  doctor     Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+
+  @@map("doctor_availability")
+  @@unique([doctorId, dayOfWeek, startTime])
+  @@index([doctorId])
+}
+
+// Appointment model
+model Appointment {
+  id             String   @id @default(uuid())
+  patientId      String   @map("patient_id")
+  doctorId       String   @map("doctor_id")
+  appointmentDate DateTime @map("appointment_date") @db.Date
+  appointmentTime DateTime @map("appointment_time") @db.Time
+  status         String   @default("pending") // 'pending', 'confirmed', 'cancelled', 'completed'
+  notes          String?
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  patient        Profile  @relation("PatientAppointments", fields: [patientId], references: [id], onDelete: Cascade)
+  doctor         Doctor   @relation("DoctorAppointments", fields: [doctorId], references: [id], onDelete: Cascade)
+
+  @@map("appointments")
+  @@unique([doctorId, appointmentDate, appointmentTime])
+  @@index([patientId])
+  @@index([doctorId])
+  @@index([appointmentDate])
+}
+
+// Doctor review model
+model DoctorReview {
+  id         String   @id @default(uuid())
+  doctorId   String   @map("doctor_id")
+  patientId  String   @map("patient_id")
+  rating     Int      // 1-5
+  reviewText String?  @map("review_text")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  // Relations
+  doctor     Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
+  patient    Profile  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  @@map("doctor_reviews")
+  @@unique([doctorId, patientId])
+}
