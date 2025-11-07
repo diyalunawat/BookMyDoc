@@ -218,12 +218,7 @@ export default function DoctorDashboardPage() {
                 Edit Profile
               </Button>
             </Link>
-            <Link href="/doctor/availability">
-              <Button className="w-full bg-teal-600 hover:bg-teal-700">
-                <Calendar className="h-4 w-4 mr-2" />
-                Manage Availability
-              </Button>
-            </Link>
+          
             <Link href={`/doctors/${user?.id}`}>
               <Button variant="outline" className="w-full">
                 View Public Profile
