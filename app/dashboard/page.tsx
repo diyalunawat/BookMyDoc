@@ -99,12 +99,22 @@ export default function DashboardPage() {
     }
   };
 
-  const upcomingAppointments = appointments.filter(
-    (a) => a.status !== 'cancelled' && a.status !== 'completed' && new Date(a.appointment_date) >= new Date()
-  );
-  const pastAppointments = appointments.filter(
-    (a) => a.status === 'completed' || new Date(a.appointment_date) < new Date()
-  );
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  
+  const upcomingAppointments = appointments.filter((a) => {
+    if (a.status === 'cancelled' || a.status === 'completed') return false;
+    const appointmentDate = new Date(a.appointment_date);
+    appointmentDate.setHours(0, 0, 0, 0);
+    return appointmentDate >= today;
+  });
+  
+  const pastAppointments = appointments.filter((a) => {
+    if (a.status === 'completed') return true;
+    const appointmentDate = new Date(a.appointment_date);
+    appointmentDate.setHours(0, 0, 0, 0);
+    return appointmentDate < today;
+  });
 
   if (authLoading || loading) {
     return (

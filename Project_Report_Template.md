@@ -2,7 +2,13 @@
 
 ## Abstract
 
-The abstract for a project is simple, short and can be seen as an overview. It is also like a summary that defines the core of your work. Whether it is literature or science, all papers need some kind of abstract. It will also help the reader understand what you are talking about. Looking at an abstract as a summary will not just make your work easy but also help you write a good one. Always remember that an abstract is not just a summary of the whole paper but also something that could be seen as contributions/conclusions of the work done. To make the abstract more readable thing, make sure to use precise and easily understandable language.
+This project presents the development and implementation of "Book My Doc," a comprehensive web-based doctor appointment booking system designed to streamline the healthcare appointment scheduling process. The system addresses the critical need for efficient, user-friendly, and accessible healthcare appointment management by providing a digital platform that connects patients with healthcare providers.
+
+The application is built using modern web technologies including Next.js 14 framework with React and TypeScript for the frontend, PostgreSQL database with Prisma ORM for data management, and JWT-based authentication for secure user access. The system supports dual user roles: patients who can search, filter, and book appointments with doctors, and doctors who can manage their availability, view appointments, and maintain their professional profiles.
+
+Key features implemented include advanced doctor search functionality with filtering by specialization, location, and ratings; real-time appointment booking with availability management; comprehensive doctor profiles with ratings and review systems; secure user authentication and authorization; and dedicated dashboards for both patients and doctors. The system follows responsive design principles ensuring accessibility across various devices and screen sizes.
+
+The implementation demonstrates successful integration of modern web development practices, database design principles, and user experience optimization. The system provides a scalable foundation for healthcare appointment management with potential for future enhancements including telemedicine integration, payment processing, and advanced analytics. This project contributes to the digital transformation of healthcare services by making appointment scheduling more accessible, efficient, and user-centric.
 
 ---
 
@@ -43,7 +49,26 @@ The abstract for a project is simple, short and can be seen as an overview. It i
 
 ## Abbreviations
 
-*[To be filled with abbreviations used in the report]*
+- **API**: Application Programming Interface
+- **CRUD**: Create, Read, Update, Delete
+- **CSS**: Cascading Style Sheets
+- **HTML**: HyperText Markup Language
+- **HTTP**: HyperText Transfer Protocol
+- **JWT**: JSON Web Token
+- **ORM**: Object-Relational Mapping
+- **REST**: Representational State Transfer
+- **SQL**: Structured Query Language
+- **UI**: User Interface
+- **UX**: User Experience
+- **JSX**: JavaScript XML
+- **TSX**: TypeScript XML
+- **SSR**: Server-Side Rendering
+- **CSR**: Client-Side Rendering
+- **SPA**: Single Page Application
+- **DBMS**: Database Management System
+- **MVC**: Model-View-Controller
+- **JWT**: JSON Web Token
+- **HTTPS**: HyperText Transfer Protocol Secure
 
 ---
 
@@ -51,31 +76,57 @@ The abstract for a project is simple, short and can be seen as an overview. It i
 
 ## 1.1 Introduction
 
-This chapter provides a comprehensive introduction to the project, outlining its purpose, significance, and the overall structure of this report. The project addresses [brief description of the project topic and its importance in the current technological landscape]. 
+This chapter provides a comprehensive introduction to the project, outlining its purpose, significance, and the overall structure of this report. The project addresses the critical challenge of healthcare appointment management in the digital age, where traditional phone-based booking systems create inefficiencies, long waiting times, and poor user experiences for both patients and healthcare providers.
 
-The report is organized into six main chapters, each focusing on different aspects of the project. Chapter 1 establishes the foundation by introducing the project topic, background, motivation, and problem statement. Chapter 2 presents an extensive literature survey that reviews existing research and identifies gaps in the current knowledge base. Chapter 3 details the methodology, implementation approach, system architecture, and algorithms used in the project. Chapter 4 showcases the project through screenshots and visual documentation. Chapter 5 presents the complete source code with detailed documentation. Finally, Chapter 6 concludes the report by summarizing the work, discussing results, and outlining future research directions.
+The "Book My Doc" system represents a modern solution to healthcare appointment scheduling, leveraging web technologies to create an accessible, efficient, and user-friendly platform. In an era where digital transformation is reshaping healthcare services, this project demonstrates how modern web development frameworks and database technologies can be integrated to solve real-world problems in the healthcare sector.
 
-This structured approach ensures a logical flow from problem identification through solution implementation to future enhancements, providing readers with a complete understanding of the project's scope, methodology, and contributions.
+The report is organized into six main chapters, each focusing on different aspects of the project. Chapter 1 establishes the foundation by introducing the project topic, background, motivation, and problem statement. Chapter 2 presents an extensive literature survey that reviews existing research on healthcare management systems, appointment booking platforms, and web application architectures, identifying gaps in current solutions. Chapter 3 details the methodology, implementation approach, system architecture, database design, and algorithms used in the project. Chapter 4 showcases the project through screenshots and visual documentation of the user interface and key features. Chapter 5 presents the system architecture, component structure, and key implementation details. Finally, Chapter 6 concludes the report by summarizing the work, discussing results, achievements, limitations, and outlining future research directions.
+
+This structured approach ensures a logical flow from problem identification through solution implementation to future enhancements, providing readers with a complete understanding of the project's scope, methodology, and contributions to the field of healthcare technology.
 
 ## 1.2 Background of the Project Topic
 
-The background section provides essential context about the domain, technology, or field in which this project is situated. Understanding the historical development, current state, and emerging trends in this area is crucial for appreciating the significance of the work presented in this report.
+The background section provides essential context about the domain, technology, or field in which this project is situated. Understanding the historical development, current state, and emerging trends in healthcare technology and appointment management systems is crucial for appreciating the significance of the work presented in this report.
 
 ### 1.2.1 Historical Context
 
-[Describe the historical development of the topic, key milestones, and evolution over time. Include relevant dates, events, or technological breakthroughs that have shaped the field.]
+Healthcare appointment management has evolved significantly over the past few decades. Traditionally, appointment scheduling was conducted through phone calls, requiring patients to call during business hours and wait on hold, while clinic staff manually managed appointment books and calendars. This process was time-consuming, error-prone, and inconvenient for both patients and healthcare providers.
+
+The advent of the internet in the 1990s introduced the first online appointment systems, though these were often basic and limited in functionality. The early 2000s saw the emergence of Electronic Health Records (EHR) systems that integrated appointment scheduling as a feature. However, these systems were primarily designed for healthcare providers and lacked patient-facing interfaces.
+
+The proliferation of smartphones and mobile applications in the 2010s revolutionized healthcare technology, leading to the development of patient-centric appointment booking applications. Companies like Zocdoc, Practo, and others demonstrated the viability of digital appointment booking platforms. The COVID-19 pandemic in 2020 accelerated the adoption of digital health solutions, making online appointment booking not just convenient but essential for maintaining healthcare services while ensuring social distancing.
+
+Today, web-based appointment systems have become standard in modern healthcare delivery, with expectations for real-time availability, instant confirmations, and seamless user experiences.
 
 ### 1.2.2 Current State of Technology
 
-[Discuss the current state-of-the-art technologies, methodologies, or systems in this domain. Highlight recent advances, popular approaches, and widely adopted standards. Reference relevant IEEE standards or industry specifications where applicable.]
+The current landscape of healthcare appointment booking systems is characterized by several technological approaches and standards. Modern systems typically employ web-based architectures using frameworks like React, Vue.js, or Angular for frontend development, with Node.js, Python, or Java for backend services.
+
+Database technologies commonly used include PostgreSQL, MySQL, and MongoDB, with many systems adopting Object-Relational Mapping (ORM) tools like Prisma, Sequelize, or TypeORM for database interactions. Authentication and security are typically implemented using JWT (JSON Web Tokens) or OAuth 2.0 protocols, following industry standards for secure user authentication.
+
+The adoption of RESTful API architectures has become standard practice, enabling separation of concerns between frontend and backend systems. Many modern systems also implement responsive design principles to ensure accessibility across desktop, tablet, and mobile devices.
+
+Cloud-based solutions using platforms like AWS, Google Cloud, or Azure have become prevalent, providing scalability and reliability. The integration of real-time features using WebSocket connections or Server-Sent Events enables live availability updates and instant notifications.
 
 ### 1.2.3 Emerging Trends and Challenges
 
-[Identify emerging trends, new directions, and current challenges facing the field. Discuss how these trends influence the direction of research and development in this area.]
+Several emerging trends are shaping the future of healthcare appointment management systems. Telemedicine integration is becoming increasingly important, with systems needing to support both in-person and virtual appointment options. Artificial Intelligence and Machine Learning are being incorporated for intelligent appointment scheduling, predicting no-shows, and optimizing doctor schedules.
+
+Mobile-first design approaches are gaining prominence as smartphone usage continues to grow. Progressive Web Applications (PWAs) are being adopted to provide app-like experiences through web browsers. Integration with payment gateways for online fee payment is becoming standard, reducing administrative overhead.
+
+However, several challenges persist in this domain. Data privacy and security remain paramount concerns, with systems needing to comply with regulations like HIPAA (Health Insurance Portability and Accountability Act) in the United States and GDPR (General Data Protection Regulation) in Europe. Scalability challenges arise as systems grow to handle thousands of concurrent users and appointments.
+
+User experience optimization is an ongoing challenge, requiring continuous refinement based on user feedback. Integration with existing hospital management systems and EHR platforms presents technical and compatibility challenges. Ensuring system reliability and uptime is critical, as healthcare services cannot afford extended downtime.
 
 ### 1.2.4 Relevance and Applications
 
-[Explain the practical relevance of this topic, its applications in real-world scenarios, and its potential impact on industry, society, or scientific research.]
+The practical relevance of healthcare appointment booking systems extends across multiple dimensions. For patients, these systems provide convenience, allowing 24/7 access to appointment scheduling without time constraints. Patients can compare doctors, read reviews, and make informed decisions about their healthcare providers. The systems reduce waiting times and improve overall healthcare access.
+
+For healthcare providers, digital appointment systems streamline administrative processes, reduce no-show rates through automated reminders, and optimize schedule management. They enable better resource allocation and can integrate with billing and record-keeping systems.
+
+From a societal perspective, efficient appointment systems contribute to better healthcare outcomes by reducing barriers to access. They support healthcare equity by making it easier for people in remote areas or with mobility constraints to access healthcare services. During public health emergencies, digital systems enable continued healthcare delivery while maintaining safety protocols.
+
+The applications of such systems extend beyond general practice to specialized clinics, hospitals, diagnostic centers, and telemedicine services. They can be adapted for various healthcare domains including mental health services, dental care, veterinary services, and wellness programs.
 
 ## 1.3 Motivation and Scope of the Report
 
@@ -83,38 +134,63 @@ The background section provides essential context about the domain, technology, 
 
 The motivation for undertaking this project stems from several key factors:
 
-1. **Research Gap**: [Identify the specific gap or limitation in existing research or technology that this project addresses.]
+1. **Research Gap**: While numerous commercial appointment booking systems exist, there is a gap in open-source, well-documented, and academically-oriented implementations that demonstrate best practices in modern web development. Many existing systems are proprietary, making it difficult to understand their architecture and implementation details. This project addresses this gap by providing a transparent, well-structured implementation that can serve as a learning resource and foundation for further research.
 
-2. **Practical Need**: [Describe real-world problems or needs that this project aims to solve.]
+2. **Practical Need**: Traditional appointment booking methods create significant inefficiencies. Patients face long waiting times on phone calls, limited availability information, and difficulty comparing healthcare providers. Healthcare facilities struggle with manual scheduling, double bookings, no-shows, and administrative overhead. This project aims to solve these real-world problems by providing an automated, user-friendly solution that benefits both patients and healthcare providers.
 
-3. **Technological Advancement**: [Explain how this project contributes to technological progress in the field.]
+3. **Technological Advancement**: This project demonstrates the integration of cutting-edge web technologies including Next.js 14 with React Server Components, TypeScript for type safety, Prisma ORM for database management, and modern authentication mechanisms. It showcases how these technologies can be combined to create robust, scalable web applications. The project contributes to the understanding of modern full-stack web development practices in the healthcare domain.
 
-4. **Academic Interest**: [Discuss the academic or theoretical significance of exploring this topic.]
+4. **Academic Interest**: From an academic perspective, this project explores important concepts in software engineering including database design, user authentication and authorization, responsive web design, and system architecture. It provides practical application of theoretical knowledge in web development, database systems, and human-computer interaction. The project serves as a comprehensive case study in building production-ready web applications.
 
-5. **Future Potential**: [Highlight the potential for future development and applications.]
+5. **Future Potential**: The system provides a foundation for numerous future enhancements including telemedicine integration, AI-powered appointment recommendations, predictive analytics for no-show prevention, integration with electronic health records, payment gateway integration, and mobile application development. The modular architecture allows for easy extension and customization for different healthcare contexts.
 
 ### 1.3.2 Scope of the Report
 
 This report encompasses the following scope:
 
 **Included in Scope:**
-- [List what aspects are covered in this report]
-- [Define the boundaries and limitations of the work]
-- [Specify the technologies, tools, or methodologies that are within scope]
+- Complete system design and architecture documentation
+- Frontend implementation using Next.js, React, and TypeScript
+- Backend implementation with Next.js API routes and server actions
+- Database schema design and implementation using Prisma ORM with PostgreSQL
+- User authentication and authorization mechanisms
+- Doctor search, filtering, and appointment booking functionality
+- Doctor availability management system
+- User profile management for both patients and doctors
+- Review and rating system implementation
+- Responsive user interface design
+- System testing and validation approaches
+- Documentation of technologies, frameworks, and tools used
 
 **Out of Scope:**
-- [Clearly state what is not covered in this report]
-- [Mention related topics that are beyond the current project's scope]
-- [Note any limitations or constraints that affect the scope]
+- Payment gateway integration and financial transactions
+- Telemedicine or video consultation features
+- Integration with external Electronic Health Record (EHR) systems
+- Mobile native application development (iOS/Android)
+- Advanced analytics and reporting features
+- Email and SMS notification services
+- Multi-language support and internationalization
+- Advanced security audits and penetration testing
+- Performance optimization for extremely high traffic scenarios
+- Integration with insurance systems
 
 ### 1.3.3 Objectives
 
 The primary objectives of this project are:
 
-1. [Objective 1: Specific, measurable goal]
-2. [Objective 2: Specific, measurable goal]
-3. [Objective 3: Specific, measurable goal]
-4. [Additional objectives as needed]
+1. **To Design and Develop a Web-Based Appointment Booking System**: Create a fully functional web application that allows patients to search for doctors, view profiles, and book appointments online, while enabling doctors to manage their availability and appointments.
+
+2. **To Implement Secure User Authentication**: Develop a robust authentication system using JWT tokens that supports role-based access control for patients and doctors, ensuring secure user sessions and data protection.
+
+3. **To Create an Intuitive User Interface**: Design and implement a responsive, user-friendly interface that provides excellent user experience across different devices and screen sizes, following modern UI/UX design principles.
+
+4. **To Design an Efficient Database Schema**: Create a well-structured database schema that supports all system requirements including user management, appointment scheduling, availability management, and review systems, with proper relationships and constraints.
+
+5. **To Implement Advanced Search and Filtering**: Develop comprehensive search functionality that allows users to find doctors based on multiple criteria including specialization, location, ratings, experience, and consultation fees.
+
+6. **To Demonstrate Modern Web Development Practices**: Showcase the use of contemporary web development technologies, frameworks, and best practices including TypeScript for type safety, component-based architecture, and server-side rendering.
+
+7. **To Provide Comprehensive Documentation**: Create detailed documentation covering system architecture, implementation details, user guides, and technical specifications that enable understanding and future development.
 
 ## 1.4 Problem Statement
 
@@ -122,23 +198,64 @@ The problem statement clearly defines the specific issue or challenge that this 
 
 ### 1.4.1 Problem Definition
 
-[Provide a clear, concise statement of the problem. This should be specific and should highlight the gap or deficiency that exists in current solutions.]
+The healthcare industry faces significant challenges in appointment scheduling and management. Traditional methods of booking appointments through phone calls are inefficient, time-consuming, and create barriers to healthcare access. Patients experience long waiting times, limited information about doctor availability, difficulty in comparing healthcare providers, and lack of transparency in scheduling. Healthcare providers struggle with manual appointment management, scheduling conflicts, no-show appointments, and administrative overhead.
+
+Existing commercial solutions are often expensive, proprietary, and lack transparency in their implementation. Many healthcare facilities, especially smaller clinics and practices, cannot afford expensive appointment management systems. There is a need for an accessible, cost-effective, and user-friendly web-based solution that addresses these challenges while being transparent, well-documented, and adaptable to different healthcare contexts.
+
+The specific problem this project addresses is: **How can modern web technologies be leveraged to create an efficient, secure, and user-friendly online appointment booking system that improves healthcare access for patients while reducing administrative burden for healthcare providers?**
 
 ### 1.4.2 Problem Significance
 
-[Explain why this problem is important and worth solving. Discuss the implications of not addressing this problem and the benefits of finding a solution.]
+This problem is significant for several reasons. First, inefficient appointment scheduling directly impacts patient satisfaction and healthcare outcomes. Patients who face difficulties booking appointments may delay seeking medical care, leading to worsened health conditions. Second, administrative inefficiencies in appointment management consume valuable time and resources that could be better utilized for patient care.
+
+Third, the lack of accessible appointment booking systems creates barriers to healthcare, particularly for individuals with mobility constraints, those in remote areas, or those with limited availability during business hours. Fourth, the healthcare industry is undergoing digital transformation, and facilities that fail to adopt modern appointment management systems risk falling behind and losing patients to more digitally-enabled competitors.
+
+Addressing this problem through a well-designed web-based solution can improve healthcare access, reduce administrative costs, enhance patient satisfaction, and contribute to the overall efficiency of healthcare delivery systems. The solution has the potential to benefit millions of patients and thousands of healthcare providers.
 
 ### 1.4.3 Problem Constraints
 
-[Identify any constraints, limitations, or assumptions that define the problem space. This may include technical constraints, resource limitations, or environmental factors.]
+Several constraints define the problem space and scope of the solution:
+
+**Technical Constraints:**
+- The solution must be web-based and accessible through standard web browsers
+- It must work across different devices including desktops, tablets, and smartphones
+- The system must handle concurrent users and appointments without performance degradation
+- Database design must ensure data integrity and prevent scheduling conflicts
+- Authentication and security must protect sensitive healthcare-related user data
+
+**Functional Constraints:**
+- The system must support two distinct user roles: patients and doctors
+- Appointment booking must respect doctor availability and prevent double-booking
+- The system must provide search and filtering capabilities for finding doctors
+- User profiles must be manageable by the respective users
+- The system must maintain appointment history and status tracking
+
+**Resource Constraints:**
+- Development must utilize open-source or freely available technologies
+- The solution should be deployable on standard web hosting platforms
+- Database should use standard SQL database systems (PostgreSQL in this case)
+- The implementation should be maintainable and extensible without requiring specialized expertise
+
+**Assumptions:**
+- Users have access to internet-connected devices with modern web browsers
+- Healthcare providers are willing to adopt digital appointment management
+- Users have basic computer literacy to navigate web interfaces
+- The system will be used in contexts where English language interface is acceptable
+- Healthcare providers will manually set their availability schedules
 
 ### 1.4.4 Research Questions
 
 This project seeks to answer the following research questions:
 
-1. [Research Question 1]
-2. [Research Question 2]
-3. [Research Question 3]
+1. **How can modern web development frameworks and technologies be effectively integrated to create a scalable and maintainable appointment booking system?** This question explores the technical architecture and technology choices that enable robust system development.
+
+2. **What database schema design principles are most effective for managing complex relationships between users, appointments, availability, and reviews in a healthcare appointment system?** This question investigates database design patterns and optimization strategies.
+
+3. **How can user authentication and authorization be implemented to ensure security while maintaining usability for both patients and healthcare providers?** This question examines authentication mechanisms and role-based access control.
+
+4. **What user interface design patterns and principles create the most intuitive and efficient experience for appointment booking?** This question explores UX/UI design considerations for healthcare applications.
+
+5. **How can search and filtering functionality be optimized to help users efficiently find suitable healthcare providers?** This question investigates search algorithms and user experience in information retrieval.
 
 ## 1.5 Salient Contribution
 
@@ -146,53 +263,67 @@ This section highlights the key contributions made by this project to the field 
 
 ### 1.5.1 Primary Contributions
 
-1. **Contribution 1**: [Describe the first major contribution - what is novel, innovative, or significant about this aspect of the work.]
+1. **Comprehensive Open-Source Implementation**: This project provides a complete, well-documented, open-source implementation of a healthcare appointment booking system. Unlike proprietary commercial solutions, this implementation offers transparency in architecture, design decisions, and code structure, making it valuable as a learning resource and foundation for further research and development.
 
-2. **Contribution 2**: [Describe the second major contribution with specific details about its impact or novelty.]
+2. **Modern Technology Stack Integration**: The project demonstrates successful integration of cutting-edge web technologies including Next.js 14 with React Server Components, TypeScript for type safety, Prisma ORM for database management, and JWT-based authentication. This showcases how modern full-stack development practices can be applied to healthcare applications, providing a reference implementation for similar projects.
 
-3. **Contribution 3**: [Describe additional contributions as applicable.]
+3. **Dual-Role User System Design**: The system implements a sophisticated dual-role architecture supporting both patients and doctors with distinct interfaces, permissions, and functionalities. This design demonstrates effective role-based access control and user experience differentiation, which can be adapted for other multi-stakeholder applications.
+
+4. **Comprehensive Database Schema Design**: The project presents a well-designed database schema that efficiently manages complex relationships between users, appointments, availability schedules, and reviews. The schema design demonstrates best practices in relational database design for appointment management systems, including proper indexing, constraints, and relationship management.
+
+5. **Responsive and Accessible User Interface**: The implementation includes a fully responsive user interface that works seamlessly across desktop, tablet, and mobile devices. The interface follows modern UI/UX design principles and provides an intuitive user experience, demonstrating how healthcare applications can be made accessible to diverse user groups.
 
 ### 1.5.2 Technical Contributions
 
-- [Technical innovation or improvement]
-- [Novel methodology or approach]
-- [Performance enhancement or optimization]
-- [New framework, model, or architecture]
+- **Server-Side Rendering Implementation**: The project utilizes Next.js Server Components and Server Actions, demonstrating modern approaches to server-side rendering that improve performance and SEO while maintaining interactive user experiences.
+
+- **Type-Safe Development**: Full TypeScript implementation ensures type safety across the entire application, reducing runtime errors and improving code maintainability. This demonstrates the value of type-safe development in complex web applications.
+
+- **ORM-Based Database Management**: The use of Prisma ORM provides type-safe database queries, automatic migration management, and simplified database interactions, showcasing modern database development practices.
+
+- **Component-Based Architecture**: The frontend is built using a modular component architecture with reusable UI components, demonstrating scalable and maintainable frontend development practices.
+
+- **Secure Authentication System**: Implementation of JWT-based authentication with secure cookie management and role-based authorization demonstrates best practices in web application security.
 
 ### 1.5.3 Practical Contributions
 
-- [Real-world application or deployment]
-- [Solution to a practical problem]
-- [Industry-relevant implementation]
-- [User benefit or value proposition]
+- **Accessible Healthcare Solution**: The system provides an accessible, cost-effective solution for healthcare appointment management that can be adopted by small clinics, individual practitioners, and larger healthcare facilities without requiring expensive proprietary software.
+
+- **Improved Patient Experience**: By enabling 24/7 appointment booking, comprehensive doctor search, and transparent scheduling, the system improves patient access to healthcare services and enhances overall patient satisfaction.
+
+- **Administrative Efficiency**: The automated appointment management system reduces administrative overhead for healthcare providers, allowing them to focus more on patient care rather than scheduling logistics.
+
+- **Educational Resource**: The well-documented, open-source nature of the project makes it a valuable educational resource for students, developers, and researchers studying web development, healthcare technology, and system design.
+
+- **Foundation for Future Development**: The modular architecture and comprehensive implementation provide a solid foundation for future enhancements including telemedicine integration, payment processing, analytics, and mobile application development.
 
 ## 1.6 Organization of Report
 
 This report is systematically organized to guide the reader through the project from conception to conclusion. The structure is as follows:
 
 **Chapter 1: Introduction** (Current Chapter)
-- Provides an overview of the project, background information, motivation, problem statement, and contributions. Sets the context for the entire report.
+- Provides an overview of the "Book My Doc" appointment booking system, background information on healthcare appointment management, motivation for the project, problem statement, objectives, and key contributions. Sets the context for the entire report and establishes the significance of the work.
 
 **Chapter 2: Literature Survey**
-- Presents a comprehensive review of existing research, methodologies, and technologies related to the project topic. Analyzes and compares different approaches, identifies research gaps, and establishes the foundation for the proposed solution.
+- Presents a comprehensive review of existing research, methodologies, and technologies related to healthcare management systems, appointment booking platforms, and web application architectures. Analyzes and compares different approaches, identifies research gaps in current solutions, and establishes the foundation for the proposed system design.
 
 **Chapter 3: Methodology / Implementation / Flowchart / Algorithms**
-- Details the system design, architecture, and implementation approach. Includes block diagrams, hardware and software descriptions, flowcharts, and algorithms used in the project.
+- Details the system design, architecture, and implementation approach for the Book My Doc system. Includes system architecture diagrams, database schema design, frontend and backend implementation details, authentication mechanisms, and key algorithms used for appointment management, search functionality, and availability checking.
 
 **Chapter 4: Snapshot / Screenshots of the Project**
-- Provides visual documentation of the project through screenshots, demonstrating the system's functionality, user interface, and key features.
+- Provides visual documentation of the project through screenshots, demonstrating the system's functionality, user interface components, patient and doctor dashboards, appointment booking process, and key features. Shows the responsive design across different devices.
 
 **Chapter 5: Source Code**
-- Presents the complete source code implementation with detailed comments and documentation, enabling reproducibility and further development.
+- Presents the system architecture, component structure, directory organization, and key implementation details. Documents the code organization, main modules, database models, API structure, and implementation patterns used in the project.
 
 **Chapter 6: Conclusion and Future Scope**
-- Summarizes the work completed, discusses results and findings, draws conclusions, and outlines directions for future research and development.
+- Summarizes the work completed, discusses results and achievements, draws conclusions about the system's effectiveness, identifies limitations and challenges encountered, and outlines directions for future research and development including telemedicine integration, payment processing, and advanced features.
 
 **References**
-- Lists all cited works in chronological order, following IEEE citation format.
+- Lists all cited works including research papers, technical documentation, framework documentation, and industry standards, following IEEE citation format in chronological order.
 
 **Appendices**
-- Contains supplementary material including flowcharts, data sheets, component lists, and published papers related to the project.
+- Contains supplementary material including software flowcharts, database schema diagrams, list of technologies and components used, and any additional documentation relevant to the project implementation.
 
 ---
 
@@ -386,13 +517,15 @@ A literature review summarizes and synthesizes the existing scholarly research o
 
 # Chapter 3: Methodology / Implementation / Flowchart / Algorithms
 
-This chapter presents a comprehensive description of the methodology, system design, implementation approach, and algorithms used in this project. It provides detailed information about the system architecture, hardware and software components, design decisions, and the step-by-step process followed during implementation.
+This chapter presents a comprehensive description of the methodology, system design, implementation approach, and algorithms used in the Book My Doc appointment booking system. It provides detailed information about the system architecture, software components, design decisions, database schema, authentication mechanisms, and the step-by-step process followed during implementation.
 
 ## 3.1 System Architecture and Block Diagram
 
 ### 3.1.1 Overall System Architecture
 
-The system architecture is designed to [describe the overall purpose and design philosophy]. The architecture follows [design pattern/principles] to ensure [benefits such as modularity, scalability, maintainability].
+The Book My Doc system is designed as a full-stack web application following a modern three-tier architecture pattern. The architecture separates concerns into presentation layer (frontend), application layer (backend API and server actions), and data layer (database). The system follows a component-based architecture for the frontend and a serverless function approach for backend operations using Next.js Server Actions.
+
+The architecture is designed to ensure modularity, scalability, maintainability, and security. The frontend is built using React components with Next.js framework, providing server-side rendering capabilities for improved performance and SEO. The backend utilizes Next.js API routes and Server Actions for handling business logic, authentication, and database operations. The data layer uses PostgreSQL database managed through Prisma ORM, ensuring type safety and simplified database interactions.
 
 ### 3.1.2 Block Diagram
 
@@ -401,159 +534,204 @@ The block diagram illustrates the high-level structure of the system, showing th
 **Figure 3.1: System Block Diagram**
 
 ```
-[Insert block diagram here or describe the structure]
-
-[Example structure description:]
-┌─────────────┐
-│   Input     │
-│   Module    │
-└──────┬──────┘
-       │
-       ▼
-┌─────────────┐     ┌─────────────┐
-│ Processing  │────▶│  Control    │
-│   Module    │     │   Module    │
-└─────────────┘     └──────┬──────┘
-                           │
-                           ▼
-                    ┌─────────────┐
-                    │   Output    │
-                    │   Module    │
-                    └─────────────┘
+┌─────────────────────────────────────────────────────────────┐
+│                    CLIENT LAYER (Browser)                    │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐       │
+│  │   Patient    │  │    Doctor   │  │   Public     │       │
+│  │  Interface   │  │  Interface  │  │   Interface  │       │
+│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘       │
+│         │                 │                  │                │
+│         └─────────────────┴──────────────────┘                │
+│                           │                                    │
+└───────────────────────────┼────────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│              NEXT.JS APPLICATION LAYER                       │
+│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐      │
+│  │   React      │  │   Server     │  │   API        │      │
+│  │ Components   │  │   Actions    │  │   Routes     │      │
+│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘      │
+│         │                 │                  │               │
+│         └─────────────────┴──────────────────┘                │
+│                           │                                    │
+│  ┌──────────────────────────────────────────┐                │
+│  │      Authentication & Authorization       │                │
+│  │      (JWT Token Management)               │                │
+│  └──────────────────┬───────────────────────┘                │
+└─────────────────────┼─────────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│              DATA ACCESS LAYER                               │
+│  ┌──────────────────────────────────────────┐              │
+│  │         Prisma ORM Client                 │              │
+│  │  (Type-safe Database Queries)              │              │
+│  └──────────────────┬───────────────────────┘              │
+└─────────────────────┼─────────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────────┐
+│              DATABASE LAYER (PostgreSQL)                     │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐   │
+│  │ Profile  │  │  Doctor  │  │Appointment│  │  Review  │   │
+│  │  Table   │  │  Table   │  │  Table   │  │  Table   │   │
+│  └──────────┘  └──────────┘  └──────────┘  └──────────┘   │
+│                                                               │
+│  ┌──────────────────────────────────────────┐                │
+│  │   DoctorAvailability Table               │                │
+│  └──────────────────────────────────────────┘                │
+└───────────────────────────────────────────────────────────────┘
 ```
 
 ### 3.1.3 Component Description
 
-**Input Module:**
-- **Function**: [Describe the function of this module]
-- **Components**: [List sub-components]
-- **Interfaces**: [Describe input/output interfaces]
+**Client Layer - Patient Interface:**
+- **Function**: Provides user interface for patients to search doctors, view profiles, book appointments, and manage their appointments
+- **Components**: Home page, doctor search page, doctor profile page, appointment booking interface, patient dashboard, user profile management
+- **Interfaces**: React components using Next.js routing, communicates with Server Actions and API routes via HTTP requests
 
-**Processing Module:**
-- **Function**: [Describe the function of this module]
-- **Components**: [List sub-components]
-- **Algorithms**: [Mention key algorithms used]
+**Client Layer - Doctor Interface:**
+- **Function**: Provides user interface for doctors to manage their profile, set availability, view appointments, and manage their schedule
+- **Components**: Doctor dashboard, availability management page, profile completion page, appointment management interface
+- **Interfaces**: React components with role-based access control, restricted to authenticated doctor users
 
-**Control Module:**
-- **Function**: [Describe the function of this module]
-- **Components**: [List sub-components]
-- **Logic**: [Describe control logic]
+**Client Layer - Public Interface:**
+- **Function**: Provides public-facing pages accessible without authentication including home page, doctor listings, and search functionality
+- **Components**: Landing page, doctor browsing page, search and filter interface
+- **Interfaces**: Public React components accessible to all users
 
-**Output Module:**
-- **Function**: [Describe the function of this module]
-- **Components**: [List sub-components]
-- **Formats**: [Describe output formats]
+**Next.js Application Layer - React Components:**
+- **Function**: Renders user interface using React Server Components and Client Components, handles client-side interactivity and state management
+- **Components**: Reusable UI components (buttons, forms, cards, modals), page components, layout components, navigation components
+- **Technologies**: React 18, Next.js 14, TypeScript, Tailwind CSS for styling
+
+**Next.js Application Layer - Server Actions:**
+- **Function**: Handles server-side business logic including user authentication, appointment booking, availability management, and data retrieval
+- **Components**: Authentication actions (signUpAction, signInAction, signOutAction), appointment actions (bookAppointmentAction, getAppointmentsAction), doctor actions (getDoctorsAction, updateAvailabilityAction)
+- **Algorithms**: Password hashing using bcrypt, JWT token generation and verification, appointment conflict checking, availability validation
+
+**Next.js Application Layer - API Routes:**
+- **Function**: Provides RESTful API endpoints for data operations and external integrations
+- **Components**: API route handlers for user operations, appointment operations, doctor operations
+- **Protocol**: HTTP/HTTPS with JSON data format
+
+**Authentication & Authorization Module:**
+- **Function**: Manages user authentication using JWT tokens, implements role-based access control for patients and doctors
+- **Components**: JWT token generation, token verification, cookie management, session handling
+- **Logic**: Validates user credentials, generates secure tokens, enforces role-based permissions, manages secure cookie storage
+
+**Data Access Layer - Prisma ORM:**
+- **Function**: Provides type-safe database access, manages database connections, handles migrations, and ensures data integrity
+- **Components**: Prisma Client for database queries, Prisma Migrate for schema management, Prisma Studio for database visualization
+- **Interfaces**: Type-safe query methods, transaction support, relationship management
+
+**Database Layer - PostgreSQL:**
+- **Function**: Stores all application data including user profiles, doctor information, appointments, availability schedules, and reviews
+- **Components**: Profile table, Doctor table, Appointment table, DoctorAvailability table, DoctorReview table
+- **Relationships**: One-to-one relationship between Profile and Doctor, one-to-many relationships for appointments and reviews, proper foreign key constraints and indexes
 
 ### 3.1.4 Data Flow
 
-The data flow through the system follows this sequence:
-1. [Step 1: Data input and validation]
-2. [Step 2: Data processing/transformation]
-3. [Step 3: Control and decision making]
-4. [Step 4: Output generation and presentation]
+The data flow through the system follows this sequence for typical operations:
+
+**Appointment Booking Flow:**
+1. **User Input**: Patient searches for doctors using search query, filters by specialization, city, or other criteria
+2. **Data Retrieval**: Server Action queries database through Prisma ORM to fetch matching doctors with their profiles and availability
+3. **Data Processing**: System filters and sorts doctors based on search criteria, calculates ratings, and checks availability
+4. **Presentation**: Filtered doctor list is displayed to the user with relevant information
+5. **Selection**: User selects a doctor and views available time slots
+6. **Validation**: System checks appointment date/time against doctor's availability and existing appointments
+7. **Booking Creation**: If valid, appointment record is created in database with status "pending"
+8. **Confirmation**: User receives confirmation and appointment appears in their dashboard
+
+**Authentication Flow:**
+1. **Credentials Input**: User enters email and password through login form
+2. **Validation**: Server Action verifies credentials against database using bcrypt password comparison
+3. **Token Generation**: If valid, JWT token is generated containing user ID, email, and role
+4. **Session Creation**: Token is stored in secure HTTP-only cookie
+5. **Authorization**: Subsequent requests include token for role-based access control
+
+**Doctor Availability Management Flow:**
+1. **Input**: Doctor sets availability for specific days and time slots
+2. **Validation**: System validates time slots don't conflict with existing appointments
+3. **Storage**: Availability records are stored in DoctorAvailability table
+4. **Integration**: Availability data is used when patients search for appointment slots
 
 ### 3.1.5 System Requirements
 
 **Functional Requirements:**
-- [Requirement 1]
-- [Requirement 2]
-- [Requirement 3]
+- User registration and authentication for both patients and doctors with role-based access control
+- Doctor profile management including specialization, qualifications, experience, consultation fees, and clinic location
+- Advanced doctor search functionality with filtering by name, specialization, city, ratings, and consultation fees
+- Real-time appointment booking system with availability checking and conflict prevention
+- Doctor availability management allowing doctors to set their weekly schedules
+- Appointment management for patients to view, track, and manage their appointments
+- Appointment management for doctors to view and manage their patient appointments
+- Review and rating system allowing patients to rate and review doctors
+- User profile management for both patients and doctors to update personal information
+- Responsive user interface that works across desktop, tablet, and mobile devices
 
 **Non-Functional Requirements:**
-- **Performance**: [Performance requirements]
-- **Reliability**: [Reliability requirements]
-- **Security**: [Security requirements]
-- **Usability**: [Usability requirements]
-- **Scalability**: [Scalability requirements]
+- **Performance**: System should load pages within 2-3 seconds, handle concurrent user requests efficiently, and provide responsive search results
+- **Reliability**: System should maintain 99% uptime, handle errors gracefully, and provide data backup mechanisms
+- **Security**: All user passwords must be hashed using bcrypt, JWT tokens must be securely stored in HTTP-only cookies, all database queries must be parameterized to prevent SQL injection, and user data must be protected according to privacy standards
+- **Usability**: Interface should be intuitive requiring minimal training, follow accessibility guidelines, provide clear error messages, and support responsive design for all device types
+- **Scalability**: Database schema should support indexing for efficient queries, system architecture should allow horizontal scaling, and code should be modular for easy maintenance and extension
 
-## 3.2 Hardware Description
+## 3.2 System Deployment and Infrastructure
 
-This section provides a detailed description of all hardware components used in the project, including their specifications, functions, and integration.
+This section describes the deployment architecture and infrastructure requirements for the Book My Doc system. As a web-based application, the system does not require specific hardware components but relies on cloud infrastructure and hosting services.
 
-### 3.2.1 Hardware Architecture
+### 3.2.1 Deployment Architecture
 
-The hardware architecture consists of [describe the overall hardware setup]. The design follows [standards/principles] to ensure [benefits].
+The Book My Doc system is designed to be deployed on cloud platforms or traditional web hosting services. The deployment architecture follows a standard web application model:
 
-### 3.2.2 Main Processing Unit
+- **Web Server**: Next.js application runs on Node.js runtime, which can be deployed on platforms like Vercel, AWS, Google Cloud Platform, or any Node.js-compatible hosting service
+- **Database Server**: PostgreSQL database can be hosted on managed database services like Supabase, AWS RDS, Google Cloud SQL, or self-hosted PostgreSQL instances
+- **Static Assets**: Static files are served through Next.js built-in static file serving or CDN services for optimal performance
 
-**Component**: [Component Name/Model]
-- **Specifications**: 
-  - Processor: [Processor details]
-  - Memory: [Memory specifications]
-  - Storage: [Storage specifications]
-  - Clock Speed: [Clock speed]
-  - Power Consumption: [Power requirements]
-- **Function**: [Primary function in the system]
-- **Interface**: [Interface types and specifications]
-- **Justification**: [Why this component was selected]
+### 3.2.2 Infrastructure Requirements
 
-### 3.2.3 Input Devices
+**Server Requirements:**
+- **Runtime Environment**: Node.js 18.x or higher for running Next.js application
+- **Database**: PostgreSQL 12 or higher for data storage
+- **Memory**: Minimum 512MB RAM for small deployments, 2GB+ recommended for production
+- **Storage**: Sufficient disk space for application code, node_modules, and database storage
+- **Network**: HTTPS support for secure communication
 
-**Component 1: [Device Name]**
-- **Type**: [Device type]
-- **Specifications**: [Technical specifications]
-- **Function**: [How it's used in the system]
-- **Connection**: [Connection method and interface]
+**Client Requirements:**
+- **Web Browser**: Modern web browsers supporting ES6+ JavaScript (Chrome, Firefox, Safari, Edge)
+- **Internet Connection**: Stable internet connection for accessing the web application
+- **Device**: Desktop computers, tablets, or smartphones with web browser capabilities
 
-**Component 2: [Device Name]**
-- **Type**: [Device type]
-- **Specifications**: [Technical specifications]
-- **Function**: [How it's used in the system]
-- **Connection**: [Connection method and interface]
+### 3.2.3 Cloud Deployment Options
 
-### 3.2.4 Output Devices
+The system can be deployed on various cloud platforms:
 
-**Component 1: [Device Name]**
-- **Type**: [Device type]
-- **Specifications**: [Technical specifications]
-- **Function**: [How it's used in the system]
-- **Connection**: [Connection method and interface]
+**Vercel (Recommended for Next.js):**
+- Optimized for Next.js applications with automatic deployments
+- Built-in CDN and edge network for global performance
+- Serverless functions for API routes and Server Actions
+- Integrated with Git for continuous deployment
 
-### 3.2.5 Communication Interfaces
+**AWS (Amazon Web Services):**
+- EC2 instances for application hosting
+- RDS for managed PostgreSQL database
+- S3 for static asset storage
+- CloudFront for CDN distribution
 
-**Interface 1: [Interface Name]**
-- **Type**: [Interface type, e.g., USB, Ethernet, Serial]
-- **Specifications**: [Technical specifications]
-- **Protocol**: [Communication protocol used]
-- **Purpose**: [Why this interface is needed]
+**Google Cloud Platform:**
+- App Engine or Cloud Run for application hosting
+- Cloud SQL for managed PostgreSQL
+- Cloud Storage for static assets
+- Cloud CDN for content delivery
 
-**Interface 2: [Interface Name]**
-- **Type**: [Interface type]
-- **Specifications**: [Technical specifications]
-- **Protocol**: [Communication protocol used]
-- **Purpose**: [Why this interface is needed]
-
-### 3.2.6 Power Supply
-
-- **Type**: [Power supply type]
-- **Specifications**: [Voltage, current, power ratings]
-- **Regulation**: [Regulation requirements]
-- **Protection**: [Protection features]
-
-### 3.2.7 Additional Components
-
-**Component 1: [Name]**
-- **Purpose**: [Function]
-- **Specifications**: [Technical details]
-
-**Component 2: [Name]**
-- **Purpose**: [Function]
-- **Specifications**: [Technical details]
-
-### 3.2.8 Hardware Integration
-
-The hardware components are integrated as follows:
-- [Description of how components are physically connected]
-- [Wiring/connection diagram description]
-- [Power distribution]
-- [Grounding and shielding considerations]
-
-### 3.2.9 Hardware Standards Compliance
-
-The hardware design complies with the following standards:
-- **IEEE Standard [Number]**: [Description of compliance]
-- **Industry Standard [Name]**: [Description of compliance]
-- **Safety Standards**: [Relevant safety standards]
+**Supabase:**
+- Integrated PostgreSQL database with real-time capabilities
+- Authentication services
+- Storage for files and media
+- Edge functions for serverless operations
 
 ## 3.3 Software Description
 
@@ -561,105 +739,216 @@ This section describes the software architecture, development tools, programming
 
 ### 3.3.1 Software Architecture
 
-The software architecture follows [architectural pattern, e.g., layered, MVC, microservices] to achieve [benefits]. The architecture is designed to support [requirements such as modularity, maintainability, extensibility].
+The software architecture follows a modern full-stack web application pattern with clear separation between presentation, application, and data layers. The architecture is designed to achieve modularity, scalability, maintainability, and type safety. The system uses Next.js App Router architecture which combines Server Components for efficient server-side rendering and Client Components for interactive features.
+
+The architecture supports:
+- **Modularity**: Component-based frontend architecture with reusable UI components and modular server actions
+- **Maintainability**: TypeScript ensures type safety, clear code organization, and comprehensive type definitions
+- **Extensibility**: Modular design allows easy addition of new features without affecting existing functionality
+- **Performance**: Server-side rendering improves initial load times, while client-side interactivity provides smooth user experience
+- **Security**: Server Actions run on the server, protecting sensitive operations and business logic
 
 ### 3.3.2 Development Environment
 
 **Operating System:**
-- **Primary OS**: [Operating system name and version]
-- **Justification**: [Why this OS was chosen]
-- **Compatibility**: [Compatibility requirements]
+- **Primary OS**: Cross-platform support (Windows, macOS, Linux)
+- **Justification**: Node.js and Next.js are platform-agnostic, allowing development on any operating system. This flexibility enables developers to work in their preferred environment.
+- **Compatibility**: The application runs on any system supporting Node.js 18.x or higher
 
 **Development Tools:**
-- **IDE/Editor**: [Name and version]
-- **Version Control**: [Version control system, e.g., Git]
-- **Build Tools**: [Build automation tools]
-- **Debugging Tools**: [Debugging and profiling tools]
+- **IDE/Editor**: Visual Studio Code (recommended) or any modern code editor with TypeScript support
+- **Version Control**: Git for source code management, with GitHub, GitLab, or Bitbucket for repository hosting
+- **Build Tools**: Next.js built-in build system using Webpack and SWC compiler for fast builds and hot module replacement
+- **Debugging Tools**: Next.js DevTools, React Developer Tools, browser DevTools, and TypeScript compiler for type checking
+- **Package Manager**: npm or yarn for dependency management
 
 ### 3.3.3 Programming Languages
 
-**Language 1: [Name]**
-- **Version**: [Version number]
-- **Purpose**: [Where and why it's used]
-- **Key Features Used**: [Relevant language features]
+**TypeScript:**
+- **Version**: TypeScript 5.2.2
+- **Purpose**: Primary language for the entire application - frontend components, server actions, type definitions, and utility functions
+- **Key Features Used**: 
+  - Type annotations for function parameters and return types
+  - Interface definitions for data structures
+  - Type inference for automatic type detection
+  - Generic types for reusable components
+  - Union and intersection types for complex type definitions
+  - Type guards for runtime type checking
 
-**Language 2: [Name]**
-- **Version**: [Version number]
-- **Purpose**: [Where and why it's used]
-- **Key Features Used**: [Relevant language features]
+**JavaScript/JSX:**
+- **Version**: ES6+ (Modern JavaScript)
+- **Purpose**: Used within React components (JSX syntax) and for configuration files
+- **Key Features Used**: 
+  - Arrow functions for concise function syntax
+  - Destructuring for object and array manipulation
+  - Template literals for string interpolation
+  - Async/await for asynchronous operations
+  - Modules (import/export) for code organization
 
 ### 3.3.4 Frameworks and Libraries
 
-**Framework 1: [Name]**
-- **Version**: [Version number]
-- **Purpose**: [What it's used for]
-- **Key Features**: [Relevant features utilized]
+**Next.js:**
+- **Version**: Next.js 14.2.31
+- **Purpose**: Primary framework providing React-based web application with server-side rendering, routing, API routes, and Server Actions
+- **Key Features**: 
+  - App Router for file-based routing
+  - Server Components for efficient server-side rendering
+  - Server Actions for server-side data mutations
+  - Built-in optimization for images, fonts, and scripts
+  - Automatic code splitting and lazy loading
 
-**Framework 2: [Name]**
-- **Version**: [Version number]
-- **Purpose**: [What it's used for]
-- **Key Features**: [Relevant features utilized]
+**React:**
+- **Version**: React 18.2.0
+- **Purpose**: UI library for building interactive user interfaces with component-based architecture
+- **Key Features**: 
+  - Functional components with hooks
+  - State management with useState and useEffect
+  - Context API for global state (authentication context)
+  - Component composition and reusability
+  - Virtual DOM for efficient rendering
 
-**Library 1: [Name]**
-- **Version**: [Version number]
-- **Purpose**: [Specific functionality provided]
-- **Usage**: [How it's used in the project]
+**Prisma:**
+- **Version**: Prisma 6.19.0
+- **Purpose**: Next-generation ORM for type-safe database access and schema management
+- **Key Features**: 
+  - Type-safe database queries
+  - Automatic migration generation
+  - Prisma Client for database operations
+  - Schema definition and validation
+  - Relationship management
 
-**Library 2: [Name]**
-- **Version**: [Version number]
-- **Purpose**: [Specific functionality provided]
-- **Usage**: [How it's used in the project]
+**Tailwind CSS:**
+- **Version**: Tailwind CSS 3.3.3
+- **Purpose**: Utility-first CSS framework for rapid UI development
+- **Key Features**: 
+  - Utility classes for styling
+  - Responsive design utilities
+  - Custom theme configuration
+  - PurgeCSS for optimized production builds
+
+**Radix UI:**
+- **Version**: Various (latest versions)
+- **Purpose**: Unstyled, accessible component primitives for building UI components
+- **Key Features**: 
+  - Accessible components (accordion, dialog, dropdown, select, etc.)
+  - Unstyled components allowing custom styling
+  - Keyboard navigation support
+  - ARIA attributes for screen readers
+
+**bcryptjs:**
+- **Version**: bcryptjs 3.0.3
+- **Purpose**: Password hashing library for secure password storage
+- **Usage**: Used in authentication Server Actions to hash passwords during registration and verify passwords during login
+
+**jsonwebtoken:**
+- **Version**: jsonwebtoken 9.0.2
+- **Purpose**: JWT token generation and verification for authentication
+- **Usage**: Used to create and verify JWT tokens containing user ID, email, and role information
+
+**react-hook-form:**
+- **Version**: react-hook-form 7.53.0
+- **Purpose**: Form state management and validation library
+- **Usage**: Used in registration, login, and profile forms for efficient form handling and validation
+
+**zod:**
+- **Version**: zod 3.23.8
+- **Purpose**: TypeScript-first schema validation library
+- **Usage**: Used with react-hook-form for form validation and type-safe schema definitions
 
 ### 3.3.5 Software Modules
 
-**Module 1: [Module Name]**
-- **Function**: [Primary function]
-- **Responsibilities**: [What this module handles]
-- **Interfaces**: [Input/output interfaces]
-- **Dependencies**: [Other modules/libraries it depends on]
+**Authentication Module:**
+- **Function**: Handles user registration, login, logout, and session management
+- **Responsibilities**: Password hashing, JWT token generation/verification, cookie management, role-based access control
+- **Interfaces**: Server Actions (signUpAction, signInAction, signOutAction, getCurrentUserAction), Authentication Context for client-side state
+- **Dependencies**: bcryptjs for password hashing, jsonwebtoken for token management, Prisma for database operations
 
-**Module 2: [Module Name]**
-- **Function**: [Primary function]
-- **Responsibilities**: [What this module handles]
-- **Interfaces**: [Input/output interfaces]
-- **Dependencies**: [Other modules/libraries it depends on]
+**Appointment Management Module:**
+- **Function**: Manages appointment booking, retrieval, status updates, and conflict prevention
+- **Responsibilities**: Validates appointment availability, prevents double-booking, manages appointment status lifecycle, retrieves appointments for users
+- **Interfaces**: Server Actions (bookAppointmentAction, getAppointmentsAction, updateAppointmentStatusAction), React components for appointment UI
+- **Dependencies**: Prisma for database queries, date/time validation utilities
 
-**Module 3: [Module Name]**
-- **Function**: [Primary function]
-- **Responsibilities**: [What this module handles]
-- **Interfaces**: [Input/output interfaces]
-- **Dependencies**: [Other modules/libraries it depends on]
+**Doctor Search and Filtering Module:**
+- **Function**: Provides doctor search, filtering, and sorting capabilities
+- **Responsibilities**: Retrieves doctor data from database, implements client-side filtering and sorting, displays doctor cards and profiles
+- **Interfaces**: Server Action (getDoctorsAction), React components (doctors page, doctor card, search interface)
+- **Dependencies**: Prisma for database queries, React state management for filtering
 
-### 3.3.6 Database (if applicable)
+**Availability Management Module:**
+- **Function**: Manages doctor availability schedules and time slot management
+- **Responsibilities**: Stores and retrieves doctor availability, validates time slots, integrates with appointment booking
+- **Interfaces**: Server Actions (updateAvailabilityAction, getAvailabilityAction), React components for availability UI
+- **Dependencies**: Prisma for database operations, date/time utilities
 
-**Database System**: [Database name and type]
-- **Version**: [Version number]
-- **Schema Design**: [Description of database schema]
-- **Tables/Collections**: [Key data structures]
-- **Relationships**: [Data relationships]
-- **Query Optimization**: [Optimization strategies]
+**Review and Rating Module:**
+- **Function**: Handles doctor reviews and rating system
+- **Responsibilities**: Stores patient reviews, calculates average ratings, displays reviews on doctor profiles
+- **Interfaces**: Server Actions (submitReviewAction, getReviewsAction), React components for review display
+- **Dependencies**: Prisma for database operations, rating calculation logic
+
+### 3.3.6 Database
+
+**Database System**: PostgreSQL
+- **Version**: PostgreSQL 12 or higher (compatible with Supabase, AWS RDS, or self-hosted instances)
+- **Schema Design**: Relational database schema with five main tables (Profile, Doctor, Appointment, DoctorAvailability, DoctorReview) designed using Prisma ORM
+- **Tables/Collections**: 
+  - **Profile Table**: Stores user account information (id, email, password, role, fullName, phone, age, gender, profilePhotoUrl)
+  - **Doctor Table**: Stores doctor-specific information (id, specialization, qualification, experienceYears, consultationFee, clinicLocation, city, bio, rating, totalRatings)
+  - **Appointment Table**: Stores appointment records (id, patientId, doctorId, appointmentDate, appointmentTime, status, notes)
+  - **DoctorAvailability Table**: Stores doctor availability schedules (id, doctorId, dayOfWeek, startTime, endTime, isAvailable)
+  - **DoctorReview Table**: Stores patient reviews (id, doctorId, patientId, rating, reviewText)
+- **Relationships**: 
+  - One-to-one relationship between Profile and Doctor
+  - One-to-many relationship between Profile and Appointments (as patient)
+  - One-to-many relationship between Doctor and Appointments
+  - One-to-many relationship between Doctor and DoctorAvailability
+  - One-to-many relationship between Doctor and DoctorReview
+- **Query Optimization**: 
+  - Indexes on frequently queried fields (specialization, city, rating, appointmentDate)
+  - Unique constraints to prevent duplicate appointments
+  - Foreign key constraints for referential integrity
+  - Proper indexing on join columns for efficient queries
 
 ### 3.3.7 APIs and Interfaces
 
-**API 1: [Name/Type]**
-- **Purpose**: [What it provides]
-- **Endpoints/Methods**: [Key interfaces]
-- **Protocol**: [Communication protocol]
-- **Data Format**: [Data exchange format]
+**Next.js Server Actions:**
+- **Purpose**: Server-side functions that handle data mutations and business logic
+- **Endpoints/Methods**: 
+  - Authentication: signUpAction, signInAction, signOutAction, getCurrentUserAction
+  - Appointments: bookAppointmentAction, getAppointmentsAction, updateAppointmentStatusAction
+  - Doctors: getDoctorsAction, getDoctorByIdAction
+  - Availability: updateAvailabilityAction, getAvailabilityAction
+  - Reviews: submitReviewAction, getReviewsAction
+- **Protocol**: HTTP/HTTPS with Server Actions protocol
+- **Data Format**: JSON for request and response data
 
-**API 2: [Name/Type]**
-- **Purpose**: [What it provides]
-- **Endpoints/Methods**: [Key interfaces]
-- **Protocol**: [Communication protocol]
-- **Data Format**: [Data exchange format]
+**Next.js API Routes (if needed):**
+- **Purpose**: RESTful API endpoints for external integrations or specific use cases
+- **Endpoints/Methods**: Standard HTTP methods (GET, POST, PUT, DELETE)
+- **Protocol**: HTTP/HTTPS REST protocol
+- **Data Format**: JSON request/response format
 
 ### 3.3.8 Software Standards and Best Practices
 
 The software development follows:
-- **Coding Standards**: [Standards followed, e.g., PEP 8, Google Style Guide]
-- **Design Patterns**: [Design patterns used]
-- **Documentation Standards**: [Documentation approach]
-- **Testing Practices**: [Testing methodologies]
+- **Coding Standards**: TypeScript strict mode enabled, ESLint for code quality, consistent naming conventions (camelCase for variables/functions, PascalCase for components), meaningful variable and function names
+- **Design Patterns**: 
+  - Component-based architecture for UI
+  - Server Actions pattern for data mutations
+  - Context API pattern for global state (authentication)
+  - Custom hooks for reusable logic
+  - Separation of concerns (presentation, business logic, data access)
+- **Documentation Standards**: 
+  - TypeScript type definitions serve as inline documentation
+  - Component props documented through TypeScript interfaces
+  - Function parameters and return types clearly defined
+  - README files for setup and usage instructions
+- **Testing Practices**: 
+  - Type checking through TypeScript compiler
+  - Manual testing of user flows
+  - Browser DevTools for debugging
+  - Error handling and validation at all input points
 
 ## 3.4 Flowchart and Algorithms
 
@@ -670,34 +959,49 @@ This section presents the detailed flowcharts and algorithms that govern the sys
 **Figure 3.2: Main System Flowchart**
 
 ```
-[Insert flowchart here or describe the flow]
-
-[Example flow description:]
 START
   │
-  ├─▶ Initialize System
+  ├─▶ User Accesses Application
   │     │
-  │     ├─▶ Load Configuration
-  │     ├─▶ Initialize Hardware
-  │     └─▶ Initialize Software Modules
+  │     ├─▶ Load Home Page
+  │     ├─▶ Display Navigation
+  │     └─▶ Show Available Features
   │
-  ├─▶ Main Loop
+  ├─▶ User Action Decision
   │     │
-  │     ├─▶ Read Input
-  │     ├─▶ Process Data
-  │     ├─▶ Make Decisions
-  │     ├─▶ Generate Output
-  │     └─▶ Update Status
+  │     ├─▶ If Not Authenticated:
+  │     │     ├─▶ Show Login/Signup Options
+  │     │     ├─▶ Handle Registration/Login
+  │     │     └─▶ Set Authentication Cookie
+  │     │
+  │     ├─▶ If Patient:
+  │     │     ├─▶ Search Doctors
+  │     │     ├─▶ View Doctor Profiles
+  │     │     ├─▶ Book Appointments
+  │     │     └─▶ Manage Appointments
+  │     │
+  │     └─▶ If Doctor:
+  │           ├─▶ Manage Profile
+  │           ├─▶ Set Availability
+  │           └─▶ View Appointments
   │
-  └─▶ Shutdown
+  ├─▶ Server Processing
+  │     │
+  │     ├─▶ Validate Request
+  │     ├─▶ Execute Server Action
+  │     ├─▶ Query Database (if needed)
+  │     ├─▶ Process Business Logic
+  │     └─▶ Return Response
+  │
+  └─▶ Display Results
         │
-        ├─▶ Save State
-        ├─▶ Release Resources
-        └─▶ END
+        ├─▶ Update UI
+        ├─▶ Show Success/Error Messages
+        └─▶ END (Continue User Interaction)
 ```
 
 **Description:**
-The main system flowchart illustrates the overall execution flow. The system starts with initialization, enters a main processing loop, and handles shutdown gracefully.
+The main system flowchart illustrates the overall execution flow of the Book My Doc application. The system starts when a user accesses the application through a web browser. The application loads the home page and displays navigation options. Based on authentication status and user role, different interfaces and functionalities are presented. All user actions are processed through Server Actions which validate requests, execute business logic, interact with the database, and return responses. The UI is updated based on the results, and the cycle continues as users interact with the system.
 
 ### 3.4.2 Key Algorithms
 
@@ -1284,348 +1588,152 @@ Screenshots were taken using:
 
 # Chapter 5: Source Code
 
-This chapter presents the complete source code of the project with comprehensive documentation, comments, and explanations. The code is organized by modules and components, with each section including detailed comments explaining the functionality, algorithms, and implementation details.
+This chapter presents the system architecture, component structure, and key implementation details of the Book My Doc appointment booking system. The code is organized following Next.js application structure with clear separation of concerns between frontend components, server actions, database models, and utility functions.
 
 ## 5.1 Code Organization and Structure
 
-The source code is organized into the following structure:
+The source code is organized into the following structure following Next.js 14 App Router conventions:
 
 ```
 project/
-├── main/
-│   ├── [main application files]
-├── modules/
-│   ├── [module 1]/
-│   ├── [module 2]/
-│   └── [module 3]/
-├── utils/
-│   ├── [utility functions]
-├── config/
-│   ├── [configuration files]
-├── tests/
-│   ├── [test files]
-└── docs/
-    ├── [documentation files]
+├── app/                          # Next.js App Router directory
+│   ├── page.tsx                  # Home/landing page
+│   ├── layout.tsx                # Root layout component
+│   ├── globals.css               # Global styles
+│   ├── login/                    # Login page
+│   │   └── page.tsx
+│   ├── signup/                   # Signup page
+│   │   └── page.tsx
+│   ├── dashboard/                # Patient dashboard
+│   │   └── page.tsx
+│   ├── profile/                  # User profile page
+│   │   └── page.tsx
+│   ├── doctors/                  # Doctor listing and search
+│   │   ├── page.tsx
+│   │   └── [id]/                 # Individual doctor profile
+│   │       └── page.tsx
+│   └── doctor/                   # Doctor-specific routes
+│       ├── dashboard/
+│       ├── profile/
+│       ├── availability/
+│       └── complete-profile/
+├── components/                    # React components
+│   ├── navbar.tsx               # Navigation bar
+│   ├── footer.tsx                # Footer component
+│   ├── doctor-card.tsx          # Doctor card display
+│   └── ui/                      # Reusable UI components
+│       ├── button.tsx
+│       ├── card.tsx
+│       ├── input.tsx
+│       ├── form.tsx
+│       └── [other UI components]
+├── lib/                          # Library and utility functions
+│   ├── prisma.ts                # Prisma client instance
+│   ├── actions.ts               # Server Actions
+│   ├── auth-context.tsx         # Authentication context
+│   ├── jwt.ts                   # JWT utilities
+│   ├── types.ts                 # TypeScript type definitions
+│   └── utils.ts                 # Utility functions
+├── prisma/                       # Database schema and migrations
+│   └── schema.prisma            # Prisma schema definition
+├── public/                       # Static assets
+├── next.config.js               # Next.js configuration
+├── tailwind.config.ts           # Tailwind CSS configuration
+├── tsconfig.json                # TypeScript configuration
+└── package.json                  # Dependencies and scripts
 ```
 
 ### 5.1.1 Directory Structure Explanation
 
-- **main/**: Contains the main application entry point and core application logic
-- **modules/**: Contains modular components, each handling a specific functionality
-- **utils/**: Contains utility functions and helper classes used across the application
-- **config/**: Contains configuration files, settings, and environment variables
-- **tests/**: Contains unit tests, integration tests, and test utilities
-- **docs/**: Contains additional documentation and code comments
+- **app/**: Contains all Next.js pages and routes using the App Router. Each subdirectory represents a route, with `page.tsx` files defining the page components. This includes public pages, authenticated pages, and role-specific pages for patients and doctors.
 
-## 5.2 Main Application Code
+- **components/**: Contains reusable React components including page-specific components (navbar, footer, doctor-card) and a comprehensive UI component library built with Radix UI primitives and styled with Tailwind CSS.
 
-### 5.2.1 Main Entry Point
+- **lib/**: Contains core application logic including Prisma database client configuration, Server Actions for backend operations, authentication context for client-side auth state, JWT utilities for token management, TypeScript type definitions, and general utility functions.
 
-**File: `main/main.py`** (or appropriate file name)
+- **prisma/**: Contains the Prisma schema file that defines the database structure, models, relationships, and indexes. Prisma migrations are managed through this directory.
 
-```python
-"""
-Main Application Entry Point
-============================
+- **public/**: Contains static assets like images, icons, and other files served directly by Next.js.
 
-This file serves as the entry point for the application.
-It initializes the system, loads configuration, and starts
-the main application loop.
+- **Configuration Files**: `next.config.js` configures Next.js build settings, `tailwind.config.ts` defines Tailwind CSS customization, `tsconfig.json` configures TypeScript compilation, and `package.json` manages dependencies and npm scripts.
 
-Author: [Author Name]
-Date: [Date]
-Version: [Version Number]
-"""
+## 5.2 Main Application Components
 
-# Import statements
-import sys
-import os
-from config.settings import Config
-from modules.module1 import Module1
-from modules.module2 import Module2
-from utils.logger import setup_logger
+### 5.2.1 Application Entry Point
 
-def initialize_system():
-    """
-    Initialize the system components.
-    
-    This function:
-    1. Loads configuration from files
-    2. Sets up logging
-    3. Initializes hardware (if applicable)
-    4. Prepares software modules
-    
-    Returns:
-        bool: True if initialization successful, False otherwise
-    """
-    try:
-        # Load configuration
-        config = Config.load()
-        
-        # Setup logging
-        logger = setup_logger(config.log_level)
-        logger.info("System initialization started")
-        
-        # Initialize modules
-        # [Initialization code]
-        
-        logger.info("System initialization completed successfully")
-        return True
-        
-    except Exception as e:
-        logger.error(f"Initialization failed: {str(e)}")
-        return False
+**File: `app/page.tsx`** - Home/Landing Page
 
-def main():
-    """
-    Main application function.
-    
-    This is the primary entry point that:
-    1. Initializes the system
-    2. Starts the main application loop
-    3. Handles shutdown gracefully
-    """
-    if not initialize_system():
-        sys.exit(1)
-    
-    try:
-        # Main application loop
-        # [Main loop code]
-        pass
-        
-    except KeyboardInterrupt:
-        print("\nShutting down...")
-    except Exception as e:
-        print(f"Error: {str(e)}")
-    finally:
-        # Cleanup
-        # [Cleanup code]
-        pass
+The main entry point of the application is the home page located at `app/page.tsx`. This is a client component that serves as the landing page for the Book My Doc system. It includes:
 
-if __name__ == "__main__":
-    main()
-```
+- Hero section with search functionality allowing users to search for doctors by name, specialization, or city
+- Specialty categories display showing different medical specializations (Cardiology, Neurology, Orthopedics, Pediatrics, Ophthalmology, General Medicine) with icons and links
+- Features section highlighting key benefits of the platform
+- "How It Works" section explaining the appointment booking process in three simple steps
+- Call-to-action sections encouraging user registration and doctor browsing
 
-**Code Explanation:**
-- The main entry point initializes the system and starts the application
-- Error handling ensures graceful shutdown
-- Logging provides debugging and monitoring capabilities
+The page uses React hooks for state management (useState for search query), Next.js navigation (useRouter for programmatic navigation), and integrates with the Navbar and Footer components for consistent layout.
 
-### 5.2.2 Configuration Management
+### 5.2.2 Authentication System
 
-**File: `config/settings.py`**
+**File: `lib/actions.ts`** - Server Actions
 
-```python
-"""
-Configuration Management Module
-================================
+The authentication system is implemented through Server Actions in the `lib/actions.ts` file. Key authentication functions include:
 
-This module handles loading and managing application configuration
-from various sources (files, environment variables, etc.).
+- **signUpAction**: Handles user registration for both patients and doctors. Validates input fields, checks for existing users, hashes passwords using bcrypt, creates user profiles in the database, generates JWT tokens, and sets secure HTTP-only cookies.
 
-Author: [Author Name]
-Date: [Date]
-"""
+- **signInAction**: Handles user login by verifying email and password against database records, comparing hashed passwords, generating JWT tokens upon successful authentication, and establishing secure sessions.
 
-import json
-import os
-from typing import Dict, Any
+- **signOutAction**: Handles user logout by clearing authentication cookies and invalidating sessions.
 
-class Config:
-    """
-    Configuration class for managing application settings.
-    
-    Attributes:
-        settings (Dict): Dictionary containing all configuration settings
-    """
-    
-    def __init__(self):
-        """Initialize configuration with default values."""
-        self.settings = {
-            'app_name': 'Project Name',
-            'version': '1.0.0',
-            'debug': False,
-            'log_level': 'INFO',
-            # Add more default settings
-        }
-    
-    @classmethod
-    def load(cls, config_file: str = 'config.json') -> 'Config':
-        """
-        Load configuration from file.
-        
-        Args:
-            config_file (str): Path to configuration file
-            
-        Returns:
-            Config: Configured instance
-        """
-        instance = cls()
-        
-        if os.path.exists(config_file):
-            with open(config_file, 'r') as f:
-                file_config = json.load(f)
-                instance.settings.update(file_config)
-        
-        # Override with environment variables
-        instance._load_from_env()
-        
-        return instance
-    
-    def _load_from_env(self):
-        """Load configuration from environment variables."""
-        # [Implementation for environment variable loading]
-        pass
-    
-    def get(self, key: str, default: Any = None) -> Any:
-        """
-        Get configuration value.
-        
-        Args:
-            key (str): Configuration key
-            default (Any): Default value if key not found
-            
-        Returns:
-            Any: Configuration value
-        """
-        return self.settings.get(key, default)
-```
+- **getCurrentUserAction**: Retrieves the current authenticated user's information by verifying JWT tokens from cookies and fetching user data from the database.
 
-## 5.3 Core Modules
+All authentication functions use Prisma ORM for database operations and implement proper error handling and validation.
 
-### 5.3.1 Module 1: [Module Name]
+## 5.3 Core Application Modules
 
-**File: `modules/module1.py`**
+### 5.3.1 Appointment Management Module
 
-```python
-"""
-Module 1: [Module Description]
-===============================
+**Files: `lib/actions.ts` (appointment functions), `app/dashboard/page.tsx`, `app/doctors/[id]/page.tsx`**
 
-This module handles [primary function of the module].
+The appointment management module handles the core functionality of booking and managing appointments. Key components include:
 
-Key Features:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
+- **bookAppointmentAction**: Server Action that handles appointment booking. It validates the appointment date and time, checks doctor availability, prevents double-booking by verifying no existing appointments at the same time slot, creates appointment records with "pending" status, and returns confirmation to the user.
 
-Author: [Author Name]
-Date: [Date]
-"""
+- **getAppointmentsAction**: Retrieves appointments for the current user (patient or doctor) with associated doctor/patient information. Supports filtering by status (pending, confirmed, cancelled, completed) and sorting by date.
 
-class Module1:
-    """
-    Main class for Module 1 functionality.
-    
-    This class provides methods for [primary purpose].
-    
-    Attributes:
-        config (dict): Module configuration
-        state (dict): Current module state
-    """
-    
-    def __init__(self, config: dict = None):
-        """
-        Initialize Module1.
-        
-        Args:
-            config (dict): Configuration dictionary
-        """
-        self.config = config or {}
-        self.state = {
-            'initialized': False,
-            'active': False
-        }
-        self._initialize()
-    
-    def _initialize(self):
-        """
-        Private method to initialize module components.
-        
-        This method sets up internal data structures and
-        prepares the module for operation.
-        """
-        # [Initialization code]
-        self.state['initialized'] = True
-    
-    def process(self, data: Any) -> Any:
-        """
-        Process input data.
-        
-        This method performs the core processing function
-        of the module.
-        
-        Args:
-            data (Any): Input data to process
-            
-        Returns:
-            Any: Processed output data
-            
-        Raises:
-            ValueError: If input data is invalid
-        """
-        if not self.state['initialized']:
-            raise RuntimeError("Module not initialized")
-        
-        # [Processing logic]
-        result = self._process_internal(data)
-        
-        return result
-    
-    def _process_internal(self, data: Any) -> Any:
-        """
-        Internal processing method.
-        
-        Args:
-            data (Any): Input data
-            
-        Returns:
-            Any: Processed data
-        """
-        # [Internal processing implementation]
-        return data
-    
-    def reset(self):
-        """Reset module to initial state."""
-        self.state['active'] = False
-        # [Reset logic]
-```
+- **updateAppointmentStatusAction**: Allows doctors to update appointment status (confirm, cancel, mark as completed) and patients to cancel their appointments.
 
-### 5.3.2 Module 2: [Module Name]
+- **Appointment Booking Interface**: Located in doctor profile pages, allows patients to select available time slots, view doctor availability, and submit booking requests with optional notes.
 
-**File: `modules/module2.py`**
+- **Appointment Dashboard**: Displays user's appointments with details including doctor information, appointment date/time, status, and clinic location. Provides actions to view details, cancel appointments, or add notes.
 
-```python
-"""
-Module 2: [Module Description]
-===============================
+### 5.3.2 Doctor Search and Filtering Module
 
-[Detailed description of module functionality]
+**Files: `app/doctors/page.tsx`, `lib/actions.ts` (getDoctorsAction)**
 
-Author: [Author Name]
-Date: [Date]
-"""
+The doctor search module provides comprehensive search and filtering capabilities:
 
-# [Module 2 implementation code with comments]
-```
+- **getDoctorsAction**: Server Action that retrieves all doctors from the database with their profile information, calculates average ratings, and includes availability information. Returns data in a format optimized for display and filtering.
 
-### 5.3.3 Module 3: [Module Name]
+- **Search Functionality**: Client-side search implementation that filters doctors by name, specialization, or city in real-time as the user types. Uses React state management for efficient filtering.
 
-**File: `modules/module3.py`**
+- **Filtering System**: Provides multiple filter options including specialization dropdown, city selection, and sorting options (by rating, consultation fee, or experience). Filters are applied client-side for immediate results.
 
-```python
-"""
-Module 3: [Module Description]
-===============================
+- **Doctor Card Component**: Reusable component (`components/doctor-card.tsx`) that displays doctor information including name, specialization, rating, experience, consultation fee, and location. Includes navigation to doctor profile pages.
 
-[Detailed description of module functionality]
+### 5.3.3 Doctor Profile and Availability Management Module
 
-Author: [Author Name]
-Date: [Date]
-"""
+**Files: `app/doctor/availability/page.tsx`, `app/doctor/profile/page.tsx`, `lib/actions.ts` (availability functions)**
 
-# [Module 3 implementation code with comments]
-```
+This module enables doctors to manage their professional profiles and availability schedules:
+
+- **updateAvailabilityAction**: Server Action that allows doctors to set their weekly availability schedules. Accepts day of week, start time, and end time, validates time slots, and stores availability in the DoctorAvailability table. Supports multiple time slots per day.
+
+- **getAvailabilityAction**: Retrieves a doctor's current availability schedule for display and editing purposes.
+
+- **Availability Management Interface**: Provides a user-friendly interface for doctors to set their weekly schedules, with time pickers and day selection. Validates that availability doesn't conflict with existing appointments.
+
+- **Profile Management**: Allows doctors to update their professional information including specialization, qualifications, experience, consultation fees, clinic location, and bio. Includes profile completion workflow for new doctor registrations.
 
 ## 5.4 Utility Functions
 
@@ -1969,7 +2077,7 @@ Install dependencies using:
 
 # Chapter 6: Conclusion and Future Scope
 
-This chapter summarizes the work carried out in this project, presents the conclusions derived from the implementation and analysis, discusses the achievements and limitations, and outlines directions for future research and development.
+This chapter summarizes the work carried out in the Book My Doc appointment booking system project, presents the conclusions derived from the implementation and analysis, discusses the achievements and limitations, and outlines directions for future research and development.
 
 ## 6.1 Summary of Work Carried Out
 
@@ -1979,17 +2087,19 @@ This section provides a comprehensive summary of all the work completed during t
 
 The following objectives were successfully achieved:
 
-1. **Objective 1**: [Description of objective and how it was achieved]
-   - **Implementation**: [Brief description of implementation]
-   - **Results**: [Key results or outcomes]
+1. **To Design and Develop a Web-Based Appointment Booking System**: Successfully created a fully functional web application using Next.js 14, React, and TypeScript. The system allows patients to search for doctors, view comprehensive profiles, and book appointments online. Doctors can manage their availability, view appointments, and maintain their professional profiles. The implementation demonstrates modern full-stack web development practices.
 
-2. **Objective 2**: [Description of objective and how it was achieved]
-   - **Implementation**: [Brief description of implementation]
-   - **Results**: [Key results or outcomes]
+2. **To Implement Secure User Authentication**: Developed a robust authentication system using JWT tokens stored in secure HTTP-only cookies. The system supports role-based access control distinguishing between patients and doctors. Password security is ensured through bcrypt hashing. The authentication mechanism provides secure session management and protects user data.
 
-3. **Objective 3**: [Description of objective and how it was achieved]
-   - **Implementation**: [Brief description of implementation]
-   - **Results**: [Key results or outcomes]
+3. **To Create an Intuitive User Interface**: Designed and implemented a responsive, user-friendly interface using React components and Tailwind CSS. The interface works seamlessly across desktop, tablet, and mobile devices. The design follows modern UI/UX principles with clear navigation, intuitive workflows, and accessible components. The interface provides distinct experiences for patients and doctors while maintaining design consistency.
+
+4. **To Design an Efficient Database Schema**: Created a well-structured database schema using Prisma ORM with PostgreSQL. The schema includes five main models (Profile, Doctor, Appointment, DoctorAvailability, DoctorReview) with proper relationships, constraints, and indexes. The design ensures data integrity, prevents scheduling conflicts, and supports efficient querying.
+
+5. **To Implement Advanced Search and Filtering**: Developed comprehensive search functionality allowing users to find doctors based on multiple criteria including name, specialization, city, ratings, experience, and consultation fees. The search includes real-time filtering and sorting capabilities, providing users with efficient ways to find suitable healthcare providers.
+
+6. **To Demonstrate Modern Web Development Practices**: Successfully showcased the integration of contemporary web technologies including Next.js Server Components, TypeScript for type safety, Prisma ORM for database management, and component-based architecture. The project demonstrates best practices in code organization, type safety, and scalable architecture.
+
+7. **To Provide Comprehensive Documentation**: Created detailed documentation covering system architecture, implementation details, database schema, and technical specifications. The codebase includes proper TypeScript types, component documentation, and clear code organization that enables understanding and future development.
 
 ### 6.1.2 Implementation Summary
 
