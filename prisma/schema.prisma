@@ -1,122 +1,95 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Database: Supabase PostgreSQL
-// Connection string is configured via DATABASE_URL environment variable in .env file
-
 generator client {
-  provider      = "prisma-client-js"
-  binaryTargets = ["native", "rhel-openssl-3.0.x"]
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-// Profile model - base user profile
-model Profile {
-  id              String   @id @default(uuid())
-  email           String   @unique
-  password        String   // hashed password
-  role            String   // 'patient' or 'doctor'
-  fullName        String   @map("full_name")
-  phone           String?
-  age             Int?
-  gender          String?  // 'male', 'female', 'other'
-  profilePhotoUrl String?  @map("profile_photo_url")
-  createdAt       DateTime @default(now()) @map("created_at")
-  updatedAt       DateTime @updatedAt @map("updated_at")
+model appointments {
+  id               String   @id
+  patient_id       String
+  doctor_id        String
+  appointment_date DateTime @db.Date
+  appointment_time DateTime @db.Time(6)
+  status           String   @default("pending")
+  notes            String?
+  created_at       DateTime @default(now())
+  updated_at       DateTime
+  doctors          doctors  @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
+  profiles         profiles @relation(fields: [patient_id], references: [id], onDelete: Cascade)
 
-  // Relations
-  doctorProfile   Doctor?
-  appointments    Appointment[] @relation("PatientAppointments")
-  reviews         DoctorReview[]
-
-  @@map("profiles")
+  @@unique([doctor_id, appointment_date, appointment_time])
+  @@index([appointment_date])
+  @@index([doctor_id])
+  @@index([patient_id])
 }
 
-// Doctor model - extends profile with doctor-specific info
-model Doctor {
-  id              String   @id @default(uuid())
-  specialization  String
-  qualification   String
-  experienceYears Int      @map("experience_years")
-  consultationFee Decimal  @db.Decimal(10, 2) @map("consultation_fee")
-  clinicLocation  String   @map("clinic_location")
-  city            String
-  bio             String?
-  rating          Decimal  @default(0) @db.Decimal(3, 2)
-  totalRatings    Int      @default(0) @map("total_ratings")
-  createdAt       DateTime @default(now()) @map("created_at")
-  updatedAt       DateTime @updatedAt @map("updated_at")
+model doctor_availability {
+  id           String   @id
+  doctor_id    String
+  day_of_week  Int
+  start_time   DateTime @db.Time(6)
+  end_time     DateTime @db.Time(6)
+  is_available Boolean  @default(true)
+  created_at   DateTime @default(now())
+  doctors      doctors  @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
 
-  // Relations
-  profile         Profile  @relation(fields: [id], references: [id], onDelete: Cascade)
-  availability    DoctorAvailability[]
-  appointments    Appointment[] @relation("DoctorAppointments")
-  reviews         DoctorReview[]
+  @@unique([doctor_id, day_of_week, start_time])
+  @@index([doctor_id])
+}
 
-  @@map("doctors")
-  @@index([specialization])
+model doctor_reviews {
+  id          String   @id
+  doctor_id   String
+  patient_id  String
+  rating      Int
+  review_text String?
+  created_at  DateTime @default(now())
+  doctors     doctors  @relation(fields: [doctor_id], references: [id], onDelete: Cascade)
+  profiles    profiles @relation(fields: [patient_id], references: [id], onDelete: Cascade)
+
+  @@unique([doctor_id, patient_id])
+}
+
+model doctors {
+  id                  String                @id
+  specialization      String
+  qualification       String
+  experience_years    Int
+  consultation_fee    Decimal               @db.Decimal(10, 2)
+  clinic_location     String
+  city                String
+  bio                 String?
+  rating              Decimal               @default(0) @db.Decimal(3, 2)
+  total_ratings       Int                   @default(0)
+  created_at          DateTime              @default(now())
+  updated_at          DateTime
+  appointments        appointments[]
+  doctor_availability doctor_availability[]
+  doctor_reviews      doctor_reviews[]
+  profiles            profiles              @relation(fields: [id], references: [id], onDelete: Cascade)
+
   @@index([city])
   @@index([rating])
+  @@index([specialization])
 }
 
-// Doctor availability model
-model DoctorAvailability {
-  id         String   @id @default(uuid())
-  doctorId   String   @map("doctor_id")
-  dayOfWeek  Int      @map("day_of_week") // 0-6 (Sunday-Saturday)
-  startTime  DateTime @map("start_time") @db.Time
-  endTime    DateTime @map("end_time") @db.Time
-  isAvailable Boolean @default(true) @map("is_available")
-  createdAt  DateTime @default(now()) @map("created_at")
-
-  // Relations
-  doctor     Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
-
-  @@map("doctor_availability")
-  @@unique([doctorId, dayOfWeek, startTime])
-  @@index([doctorId])
-}
-
-// Appointment model
-model Appointment {
-  id             String   @id @default(uuid())
-  patientId      String   @map("patient_id")
-  doctorId       String   @map("doctor_id")
-  appointmentDate DateTime @map("appointment_date") @db.Date
-  appointmentTime DateTime @map("appointment_time") @db.Time
-  status         String   @default("pending") // 'pending', 'confirmed', 'cancelled', 'completed'
-  notes          String?
-  createdAt      DateTime @default(now()) @map("created_at")
-  updatedAt      DateTime @updatedAt @map("updated_at")
-
-  // Relations
-  patient        Profile  @relation("PatientAppointments", fields: [patientId], references: [id], onDelete: Cascade)
-  doctor         Doctor   @relation("DoctorAppointments", fields: [doctorId], references: [id], onDelete: Cascade)
-
-  @@map("appointments")
-  @@unique([doctorId, appointmentDate, appointmentTime])
-  @@index([patientId])
-  @@index([doctorId])
-  @@index([appointmentDate])
-}
-
-// Doctor review model
-model DoctorReview {
-  id         String   @id @default(uuid())
-  doctorId   String   @map("doctor_id")
-  patientId  String   @map("patient_id")
-  rating     Int      // 1-5
-  reviewText String?  @map("review_text")
-  createdAt  DateTime @default(now()) @map("created_at")
-
-  // Relations
-  doctor     Doctor   @relation(fields: [doctorId], references: [id], onDelete: Cascade)
-  patient    Profile  @relation(fields: [patientId], references: [id], onDelete: Cascade)
-
-  @@map("doctor_reviews")
-  @@unique([doctorId, patientId])
+model profiles {
+  id                String           @id
+  role              String
+  full_name         String
+  phone             String?
+  age               Int?
+  gender            String?
+  profile_photo_url String?
+  created_at        DateTime         @default(now())
+  updated_at        DateTime
+  email             String           @unique
+  password          String
+  appointments      appointments[]
+  doctor_reviews    doctor_reviews[]
+  doctors           doctors?
 }
